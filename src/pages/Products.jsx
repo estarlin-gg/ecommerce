@@ -15,12 +15,13 @@ export const Products = () => {
         <Filters />
       </div>
       <div className="grid grid-cols-1 p-4 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid-cols-">
-        {products.map((e) => (
+        {products.map((item) => (
           <ProductCard
-            image={e.image}
-            price={e.price}
-            title={e.name}
-            id={e.id}
+            key={item.id}
+            image={item.image}
+            price={item.price}
+            name={item.name}
+            id={item.id}
           />
         ))}
       </div>
