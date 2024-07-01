@@ -49,13 +49,9 @@ export const Menu = () => {
           )}
         </div>
         <Navbar.Collapse>
-          <Link to={"/"}>
-            <Navbar.Link href="#">Home</Navbar.Link>
-          </Link>
-          <Link to={"/products"}>
-            <Navbar.Link href="#">Mens</Navbar.Link>
-          </Link>
-          <Navbar.Link href="#">Products</Navbar.Link>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/products"}>Mens</Link>
+          <Link>Products</Link>
         </Navbar.Collapse>
       </Navbar>
       <ShopCart />
