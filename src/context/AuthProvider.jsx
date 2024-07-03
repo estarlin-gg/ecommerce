@@ -43,10 +43,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginWithGoogle = async () => {
-    setLoading(true);
-    const googleProvider = new GoogleAuthProvider();
-    await signInWithPopup(auth, googleProvider);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const googleProvider = new GoogleAuthProvider();
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
