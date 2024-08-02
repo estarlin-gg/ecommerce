@@ -8,7 +8,6 @@ import { useStore } from "../context/StoreProvider";
 export const Home = () => {
   const { user } = useAuth();
   const { products } = useStore();
-  console.log(products)
 
   return (
     <>

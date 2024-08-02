@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  signInWithRedirect,
+  getRedirectResult,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
@@ -22,6 +24,13 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       setLoading(false);
     });
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const register = async (email, password) => {
@@ -43,15 +52,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginWithGoogle = async () => {
-    try {
-      setLoading(true);
-      const googleProvider = new GoogleAuthProvider();
-      await signInWithPopup(auth, googleProvider);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+    setLoading(true);
+    const googleProvider = new GoogleAuthProvider();
+    await signInWithPopup(auth, googleProvider);
+    setLoading(false);
   };
 
   return (

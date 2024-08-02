@@ -7,9 +7,10 @@ import { ShopCart } from "./ShopCart";
 import { useStore } from "../context/StoreProvider";
 
 export const Menu = () => {
-  const { isOpen, setIsOpen } = useStore();
+  const { setIsOpen } = useStore();
 
   const { user } = useAuth();
+
   return (
     <>
       <Navbar className="shadow-md  mx-auto py-4 justify-center ">
@@ -36,12 +37,16 @@ export const Menu = () => {
           ) : (
             <div className="flex gap-2 md:order-2">
               <Link to={"/register"}>
-                <Button size={"sm"} outline className="bg-black">
+                <Button
+                  size={""}
+                  color={"white"}
+                  className=" border-2 border-black p-2  text-black"
+                >
                   Sign Up
                 </Button>
               </Link>
               <Link to={"/login"}>
-                <Button size={"sm"} className="bg-black">
+                <Button size={""} color={"dark"} className=" p-2">
                   Log in
                 </Button>
               </Link>
@@ -51,7 +56,7 @@ export const Menu = () => {
         <Navbar.Collapse>
           <Link to={"/"}>Home</Link>
           <Link to={"/products"}>Mens</Link>
-          <Link>Products</Link>
+          <Link>Woman</Link>
         </Navbar.Collapse>
       </Navbar>
       <ShopCart />

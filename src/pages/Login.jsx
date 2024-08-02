@@ -4,7 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import useForm from "../hooks/useForm";
 
 export const Login = () => {
-  const { credentials, handleChange, handleLogin,handleSignUpWithGoogle } = useForm();
+  const { credentials, handleChange, handleLogin, handleSignUpWithGoogle } =
+    useForm();
 
   return (
     <form
@@ -26,7 +27,6 @@ export const Login = () => {
           id="email"
           type="email"
           placeholder="example@example.com"
-          required
           className="border focus:border-blue-600 focus:border"
           onChange={handleChange}
         />
@@ -39,7 +39,6 @@ export const Login = () => {
           id="password"
           type="password"
           placeholder="*****"
-          required
           onChange={handleChange}
         />
       </div>
@@ -48,7 +47,12 @@ export const Login = () => {
       </Button>
       <Divider text={"OR"} />
 
-      <Button color={"white"} className="border-2" type="button" onClick={handleSignUpWithGoogle}>
+      <Button
+        color={"white"}
+        className="border-2"
+        type="button"
+        onClick={handleSignUpWithGoogle}
+      >
         <div className="w-full flex items-center justify-between gap-4">
           <FcGoogle size={25} />
           <span className="text-gray-500">Continue with Google </span>
