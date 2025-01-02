@@ -2,6 +2,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { Divider } from "../components/Divider";
 import { FcGoogle } from "react-icons/fc";
 import useForm from "../hooks/useForm";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const { credentials, handleChange, handleLogin, handleSignUpWithGoogle } =
@@ -41,6 +42,14 @@ export const Login = () => {
           placeholder="*****"
           onChange={handleChange}
         />
+      </div>
+      <div className="">
+      <span>
+          Don't have an account?{" "}
+          <Link to={"/register"} className="text-blue-700 underline">
+            Register
+          </Link>
+        </span>
       </div>
       <Button color={"blue"} type="submit">
         Log In

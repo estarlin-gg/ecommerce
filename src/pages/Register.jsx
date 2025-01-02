@@ -2,6 +2,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { Divider } from "../components/Divider";
 import { FcGoogle } from "react-icons/fc";
 import useForm from "../hooks/useForm";
+import { Link } from "react-router-dom";
 
 export const Register = () => {
   const { handleChange, handleSubmit, handleSignUpWithGoogle } = useForm();
@@ -33,6 +34,14 @@ export const Register = () => {
           placeholder="*****"
           onChange={handleChange}
         />
+      </div>
+      <div className="">
+        <span>
+          Already have an account?{" "}
+          <Link to={"/login"} className="text-blue-700 underline">
+            Log in
+          </Link>
+        </span>
       </div>
       <Button color={"blue"} type="submit">
         Register

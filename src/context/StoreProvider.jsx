@@ -16,6 +16,7 @@ export const StoreProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
+    console.log("sweet")
     const store = collection(db, "products");
     getDocs(store).then((resp) => {
       setProducts(
